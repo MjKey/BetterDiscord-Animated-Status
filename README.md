@@ -2,80 +2,80 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Timeout / Time Per Keyframe](#timeout--time-per-keyframe)
-* ['rich' vs 'raw' editor](#rich-vs-raw-editor)
-* [Animations](#animations)
-* [Examples](#examples)
-* [Discord Nitro Emoji](#discord-nitro-emoji)
-	* [Custom Javascript](#custom-javascript)
+* [Установка](#установка)
+* [Использование](#использование)
+* [Таймаут / Время текста](#таймаут)
+* ['rich' или 'raw' редакторы](#rich-или-raw-редакторы)
+* [Анимация](#анимация)
+* [Примеры](#примеры)
+* [Discord Nitro Смайлики](#discord-nitro-смайлики)
+	* [Кастомный Javascript](#кастомный-javascript)
 
 <!-- vim-markdown-toc -->
 
-## Installation
-Install [BetterDiscord](https://github.com/rauenzi/BetterDiscordApp)\
-Download [animated-status.plugin.js](/animated-status.plugin.js?raw=true) into the following directory\
+## Установка
+Установить [BetterDiscord](https://github.com/rauenzi/BetterDiscordApp)\
+Скачать [animated-status.plugin.js](/animated-status.plugin.js?raw=true) into the following directory\
 Mac: `~/Library/Preferences/BetterDiscord`\
 Windows: `%appdata%\BetterDiscord\plugins`\
 Linux: `~/.config/BetterDiscord/plugins`
 
-## Usage
-Open Discord, go to Settings\>Plugins, enable AnimatedStatus and click on Settings.\
-Enter the required information into the input fields and click `save`
+## Использование
+Откройте Discord, зайдите в Настройки\>Plugins, включите AnimatedStatus и нажмите Настройки.\
+Введите необходимую вам информацию и нажмите `save`
 
-## Timeout / Time Per Keyframe
-The value specifies the length of each animation step in milliseconds.
-Example: With a timeout of 2000, the following animation would take 4 seconds to complete
+## Таймаут
+Это значение указывает длину каждого шага анимации в миллисекундах.\
+Пример: Если таймаут 2000, то вся данная анимация пройдёт за 4 секунды. (2сек на каждую строчку)
 ```
 "abc"
 "def"
 ```
-The animation timeout should be at least 2900 milliseconds for the animation to look smooth on other clients. This makes sure no keyframe gets gets lost.
-On mobile systems the timeout might have to be set a little higher (10-14 Seconds)\
-^ According to [@pintoso](https://github.com/pintoso)
+Тайм-аут анимации должен составлять не менее 2900 миллисекунд, чтобы анимация выглядела плавно на других клиентах. Это гарантирует, что ни один ключевой кадр не будет потерян.\
+В мобильных системах тайм-аут может быть установлен немного выше (10-14 секунд)\
+^ Информация от [@pintoso](https://github.com/pintoso)
 
-## 'rich' vs 'raw' editor
-Since the lastest version, the plugin now features a new rich editor. It doesn't add functionality, but makes editing your animations a whole lot easier!\
+## 'rich' или 'raw' редакторы
+Начиная с последней версии, плагин теперь имеет новый улучшенный редактор. Это не добавляет функциональности, но делает редактирование ваших анимаций намного проще!\
 ![Rich Editor](/screenshots/rich.png?raw=true)\
-The raw editor is just a text input field, where you can edit your animations manually in a json-like format\
-(looking at the source code reveals that it's basically json with missing brackets)
+Редактор raw-это просто поле ввода текста, в котором вы можете редактировать свои анимации вручную в формате json\
 
-## Animations
+## Анимация
 ![Settings Page](/screenshots/settings.png?raw=true)\
-Animations are made in a really simple and easy to understand syntax.
+Анимация выполнена в очень простом и понятном синтаксисе.\
+Для анимации текста вы можите использовать мой генератор: [Клик](https://mjkey.ru/neco.php?src=Это+тестовый+текст+1+варианта+анимации+текста.+Разработано+MjKey%27ем+по+фану.+Будет+полезно+для+анимации+статуса+дискорда.&type=text1&s=20)
 ```
-"Test (Message)"
-"Test (Message)", "👍 (Symbol)"
-"Test (Message)", "emoji (Nitro Symbol)", "000000000000000000 (Nitro Symbol ID)"
-"eval new String('test') (Javascript)"
-"eval new String('test') (Javascript)", "eval new String('👍') (Javascript)"
+"Тест (Сообщение)"
+"Тест (Сообщение)", "👍 (символ)"
+"Тест (Сообщение)", "смайлик (Nitro смайлик)", "000000000000000000 (Nitro ID смайлика)"
+"eval new String('тест') (Javascript)"
+"eval new String('тест') (Javascript)", "eval new String('👍') (Javascript)"
 ...
 ```
-## Examples
-Switching text:
+## Примеры
+Переключаение текста:
 ```
-"Text 1"
-"Text 2 with emoji", "👍"
+"Текст 1"
+"Текст 2 с смайликом", "👍"
 ```
 
-## Discord Nitro Emoji
-- Open a discord Chat, type `\`.
+## Discord Nitro Смайлики
+- Откройте чат discord, введите `\`.
 <img src="screenshots/nitro0.png">
-- Select the emoji you want to include in your status using the emoji picker.
+- Выберите эмодзи, которые вы хотите включить в свой статус, с помощью средства выбора эмодзи.
 <img src="screenshots/nitro1.png">
-- Notice that the message changed to `<:emojiname:emojiid>`. The values inside the brackets (emojiname and emojiid) are the values required for the status.
+- Обратите внимание, что сообщение изменилось на `<:emojiname:emojiid>`. Значения внутри скобок (emojiname и emojiid) - это значения, необходимые для статуса.
 <img src="screenshots/nitro2.png">
-- Edit the settings accordingly
+- Измените настройки соответствующим образом
 <img src="screenshots/nitro3.png">
 
-### Custom Javascript
-Have the current time as your status:
+### Кастомный Javascript
+Использование текущего времени в качестве своего статуса:
 ```
 "eval let fmt=t=>(t<10?'0':'')+t;let d=new Date();`${fmt(d.getHours())}:${fmt(d.getMinutes())}:${fmt(d.getSeconds())}`;"
 ```
 
-Have the current time with the corresponding clock symbol as your current status
+Использование текущего времени в качестве смайлика своего статуса:
 ![Settings Page](/screenshots/status_clock.png?raw=true)
 ```
 "eval let fmt=t=>(t<10?'0':'')+t;let d=new Date();`${fmt(d.getHours())}:${fmt(d.getMinutes())}:${fmt(d.getSeconds())}`;", "eval ['🕛','🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚'][((new Date()).getHours()%12)];"
