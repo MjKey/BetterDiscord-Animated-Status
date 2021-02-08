@@ -1,4 +1,4 @@
-//META{"name":"AnimatedStatus","source":"https://raw.githubusercontent.com/toluschr/BetterDiscord-Animated-Status/master/animated-status.plugin.js","website":"https://github.com/toluschr/BetterDiscord-Animated-Status"}*//
+//META{"name":"Анимация Статуса RUS","source":"https://raw.githubusercontent.com/MjKey/BetterDiscord-Animated-Status/master/animated-status.plugin.js","website":"https://github.com/MjKey/BetterDiscord-Animated-Status/"}*//
 
 const Editor_Type = {
 	RICH: 0,
@@ -16,11 +16,11 @@ class AnimatedStatus {
 	}
 
 	getAuthor() {
-		return "toluschr | Rus by MjKey";
+		return "Original by toluschr | Rus by MjKey";
 	}
 
 	getDescription() {
-		return "Анимирую свой статус";
+		return "Анимируй свой статус";
 	}
 
 	setData(key, value) {
