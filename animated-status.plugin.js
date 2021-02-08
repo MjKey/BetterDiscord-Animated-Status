@@ -8,7 +8,7 @@ const Editor_Type = {
 class AnimatedStatus {
 	/* BD functions */
 	getName() {
-		return "AnimatedStatus";
+		return "AnimatedStatus RU";
 	}
 
 	getVersion() {
@@ -16,11 +16,11 @@ class AnimatedStatus {
 	}
 
 	getAuthor() {
-		return "toluschr";
+		return "toluschr | Rus by MjKey";
 	}
 
 	getDescription() {
-		return "Animate your Discord status";
+		return "Анимирую свой статус";
 	}
 
 	setData(key, value) {
@@ -68,7 +68,7 @@ class AnimatedStatus {
 	Status_Animate(index = 0) {
 		if (index >= this.animation.length) index = 0;
 		if (this.animation[index] == undefined) {
-			BdApi.showToast("Animated Status: No status set. Go to Settings>Plugins to set a custom animation!");
+			BdApi.showToast("Анимация статуса: Статус не установлен. Зайдите в Настройки>Plugins и поставьте анимацию!");
 			return;
 		}
 
@@ -83,7 +83,7 @@ class AnimatedStatus {
 	newRawEdit(str = "") {
 		let out = GUI.newTextarea();
 		out.style.fontFamily = "SourceCodePro,Consolas,Liberation Mono,Menlo,Courier,monospace";
-		out.placeholder = '"Test (Message)"\n"Test (Message)", "👍 (Symbol)"\n"Test (Message)", "emoji (Nitro Symbol)", "000000000000000000 (Nitro Symbol ID)"\n"eval new String(\'test\') (Javascript)"\n"eval new String(\'test\') (Javascript)", "eval new String(\'👍\') (Javascript)"\n...';
+		out.placeholder = '"Тест (Сообщение)"\n"Тест (Сообщение)", "👍 (Смайлик)"\n"Тест (Сообщение)", "смайлик (Nitro Символ)", "000000000000000000 (Nitro Символ ID)"\n"eval new String(\'тест\') (Javascript)"\n"eval new String(\'тест\') (Javascript)", "eval new String(\'👍\') (Javascript)"\n...';
 		out.value = str;
 		return out;
 	}
@@ -92,7 +92,7 @@ class AnimatedStatus {
 		let hbox = GUI.newHBox();
 
 		let textWidget = GUI.newInput(text);
-		textWidget.placeholder = "Text";
+		textWidget.placeholder = "Текст";
 		textWidget.style.marginRight = this.kSpacing;
 		if (text != undefined) textWidget.value = text;
 		hbox.appendChild(textWidget);
@@ -157,7 +157,7 @@ class AnimatedStatus {
 		settings.style.padding = "10px";
 
 		// timeout
-		settings.appendChild(GUI.newLabel("Time per Keyframe (In milliseconds)"));
+		settings.appendChild(GUI.newLabel("Время на 1 строчку (в милисикундах)"));
 		let timeout = GUI.newInput();
 		timeout.setAttribute("type", "number");
 		timeout.addEventListener("focusout", () => {
@@ -170,7 +170,7 @@ class AnimatedStatus {
 		settings.appendChild(timeout);
 
 		// Animation
-		settings.appendChild(GUI.newLabel('Animation'));
+		settings.appendChild(GUI.newLabel('Анимация'));
 		let animationContainer = document.createElement("div");
 		animationContainer.marginBottom = this.kSpacing;
 		settings.appendChild(animationContainer);
@@ -183,7 +183,7 @@ class AnimatedStatus {
 		let actionsRich = GUI.newHBox();
 
 		let addStep = GUI.setSuggested(GUI.newButton("+", false));
-		addStep.title = "Add step to end";
+		addStep.title = "Добавить строчку в конце";
 		addStep.onclick = () => {
 			let row = this.newRichRow();
 			if (edit.childNodes.length) row.style.marginTop = this.kSpacing;
@@ -192,7 +192,7 @@ class AnimatedStatus {
 		actionsRich.appendChild(addStep);
 
 		let delStep = GUI.setDestructive(GUI.newButton("-", false));
-		delStep.title = "Remove last step";
+		delStep.title = "Удалить последнию строчку";
 		delStep.style.marginLeft = this.kSpacing;
 		delStep.onclick = () => edit.removeChild(edit.childNodes[edit.childNodes.length - 1]);
 		actionsRich.appendChild(delStep);
@@ -207,7 +207,7 @@ class AnimatedStatus {
 		}
 		animationContainer.appendChild(edit);
 
-		let changeEditMode = GUI.newButton("Change Edit Mode");
+		let changeEditMode = GUI.newButton("Изменить редактор");
 		actions.appendChild(changeEditMode);
 
 		// TODO make this function less bad
@@ -241,7 +241,7 @@ class AnimatedStatus {
 		// Move save to the right
 		actions.appendChild(GUI.setExpand(document.createElement("div"), 2));
 
-		let save = GUI.newButton("Save");
+		let save = GUI.newButton("Сохранить");
 		GUI.setSuggested(save, true);
 		actions.appendChild(save);
 		save.onclick = () => {
@@ -262,7 +262,7 @@ class AnimatedStatus {
 			}
 
 			// Show Toast
-			BdApi.showToast("Settings were saved!", {type: "success"});
+			BdApi.showToast("Настройки сохранены!", {type: "success"});
 
 			// Restart
 			this.load();
@@ -284,12 +284,12 @@ const Status = {
 			return undefined;
 
 		if (req.status == 401)
-			return "Invalid AuthToken";
+			return "Недествительный AuthToken";
 
 		let json = JSON.parse(req.response);
 		for (const s of ["errors", "custom_status", "text", "_errors", 0, "message"])
 			if ((json == undefined) || ((json = json[s]) == undefined))
-				return "Internal. Report at github.com/toluschr/BetterDiscord-Animated-Status";
+				return "Ошибочка. Репорт - github.com/toluschr/BetterDiscord-Animated-Status";
 
 		return json;
 	},
