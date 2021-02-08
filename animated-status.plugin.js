@@ -1,4 +1,4 @@
-//META{"name":"Анимация Статуса RUS","source":"https://raw.githubusercontent.com/MjKey/BetterDiscord-Animated-Status/master/animated-status.plugin.js","website":"https://github.com/MjKey/BetterDiscord-Animated-Status/"}*//
+//META{"name":"AnimatedStatus","source":"https://raw.githubusercontent.com/MjKey/BetterDiscord-Animated-Status/master/animated-status.plugin.js","website":"https://github.com/MjKey/BetterDiscord-Animated-Status/"}*//
 
 const Editor_Type = {
 	RICH: 0,
