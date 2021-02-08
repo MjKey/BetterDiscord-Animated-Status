@@ -16,7 +16,7 @@ class AnimatedStatus {
 	}
 
 	getAuthor() {
-		return "Original by toluschr | Rus by MjKey";
+		return "Original by toluschr | Rus by MjKey v0.1";
 	}
 
 	getDescription() {
