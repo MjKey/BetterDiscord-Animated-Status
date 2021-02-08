@@ -15,13 +15,13 @@
 
 ## Установка
 Установить [BetterDiscord](https://github.com/rauenzi/BetterDiscordApp)\
-Скачать [animated-status.plugin.js](/animated-status.plugin.js?raw=true) into the following directory\
+Скачать [animated-status.plugin.js](/animated-status.plugin.js?raw=true) и посместить в папку:\
 Mac: `~/Library/Preferences/BetterDiscord`\
 Windows: `%appdata%\BetterDiscord\plugins`\
 Linux: `~/.config/BetterDiscord/plugins`
 
 ## Использование
-Откройте Discord, зайдите в Настройки\>Plugins, включите AnimatedStatus и нажмите Настройки.\
+Откройте Discord, зайдите в Настройки\>Plugins, включите AnimatedStatus и нажмите Settings.\
 Введите необходимую вам информацию и нажмите `save`
 
 ## Таймаут
